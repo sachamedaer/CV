@@ -9,6 +9,7 @@
 %%    http://www.latex-project.org/lppl.txt
 %% and version 1.3 or later is part of all distributions of LaTeX
 %% version 2003/12/01 or later.
+%% CV template adapted by Sacha Medaer.
 %%%%%%%%%%%%%%%%
 
 %% If you need to pass whatever options to xcolor
@@ -18,8 +19,9 @@
 %% icons, make sure you have the academicons 
 %% option here, and compile with XeLaTeX
 %% or LuaLaTeX.
-% \documentclass[10pt,a4paper,academicons]{altacv}
-\documentclass[9pt,a4paper]{altacv}
+%!!!!!!! Attention -> got in menu -> settings -> compiler and choose LuaLatex
+\documentclass[9pt,a4paper,academicons]{altacv}
+%\documentclass[9pt,a4paper]{altacv}
 
 %% AltaCV uses the fontawesome and academicon fonts
 %% and packages. 
@@ -83,17 +85,18 @@
 
 \begin{document}
 \name{Sacha Medaer}
-\tagline{Looking for a PhD at the intersection of Computer Sciences and Physics Engineering}
+\tagline{}
 %\photo{2.8cm}{Globe_High}
 \personalinfo{%
   % Not all of these are required!
   % You can add your own with \printinfo{symbol}{detail}
   \email{sacha@medaer.me}
-  \phone{+32471048908}
-  \location{Brussels}
-  \mailaddress{Europalaan 13, Hoeilaart 1560, Belgium\hspace{10em}}
-  \linkedin{\href{https://www.linkedin.com/in/sacha-medaer/}{linkedin.com/in/sacha-medaer/}}
-  \github{\href{https://github.com/sachamedaer}{github.com/sachamedaer/}}
+  \phone{+41782170099}
+  \location{Geneva, Switzerland}
+  %\mailaddress{}
+  \linkedin{sacha-medaer}
+  %\github{\href{https://github.com/sachamedaer}{github.com/sachamedaer/}}
+  \orcid{0000-0002-1432-2858}
   %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
 %   \orcid{orcid.org/0000-0000-0000-0000}
 }
@@ -108,57 +111,88 @@
 %% not need to align the top of the contents to any
 %% \cvsection title in the "main" bar.
 
-\cvsection[page1sidebar]{Education}
+\cvsection[page1sidebar]{Education \& Research Experience}
 % for converting grade, see : https://www.jobline.uni-muenchen.de/app_language/degrees_and_grades/grades/index.html
 
-\cvevent{Master degree in Advanced Optical Technologies}{Friedrich-Alexander Universit\"at}{2020}{Nuremberg, Germany}
+\cvevent{PhD Research}{European Organization for Nuclear Research (CERN)}{2021 -- (Feb. 2024)}{Geneva, Switzerland}
+\begin{itemize}
+    \small
+    \item \textbf{Doctoral Thesis:}  \textit{Radiation Induced Effects and Chemistry in Anti-resonant Hollow-core Optical Fibers}
+\end{itemize}
+\divider
+
+\cvevent{Master degree in Physics}{Université de Genève (UNIGE)}{2021 -- (2024)}{Geneva, Switzerland}
 \begin{itemize}
 \small
-\item Majors: Computational Optics \& Optics in Communication and Information Theory
-\item Final grade: First-class 
+\item \textbf{1-year Bachelor complementary study for admission to Master degree}
+\item \textbf{Majors:} Cosmology \& Astrophysics of Particles
+\item \cvsubevent{Master Project}{UNIGE Nuclear Physics Department}{Atmospheric Muon Mass \& Momentum Detector with Magnets, PMTs, and DAQ System}
 \end{itemize}
-%\divider
+\divider
 
-\cvevent{Master degree in Computational Engineering}{Friedrich-Alexander Universit\"at}{2020}{Nuremberg, Germany}
+\cvevent{Master degree in Computational Engineering}{Friedrich-Alexander Universit\"at (FAU)}{2018 -- 2020}{Nuremberg, Germany}
 \begin{itemize}
+\setlength\itemsep{0.75em}
 \small
-\item Majors: Digital Communication \& Machine Learning
-\item Final grade: Upper second-class (2:1)
+\item \textbf{Majors:} Digital Communication \& Machine Learning
+\item \cvsubevent{Master Thesis}{Siemens Healthineers - Artificial Intelligence Group}{Deep Reinforcement Learning for the Planning of Liver Tumor Thermal Ablation }
 \end{itemize}
-%\divider
+\divider
+
+\cvevent{Master degree in Advanced Optical Technologies}{Graduate School in Advanced Optical Technologies (SAOT)}{2017 -- 2020}{Nuremberg, Germany}
+\begin{itemize}
+\setlength\itemsep{0.75em}
+\small
+\item \textbf{Majors}: Computational Optics \& Optics in Communication and Information Theory
+\item \cvsubevent{Master Thesis}{Associated Group of Max Planck Institute for the Science of Light}{Simulation of a Figure-of-eight All-normal-dispersion All-in-fiber Regenerative Hybrid Harmonic Mode-locked Laser}
+\item \cvsubevent{Master Project}{Associated Group of Max Planck Institute for the Science of Light}{Simulation of a Pulse Stretcher concept for Ultrashort Pulse Fiber Laser Systems}
+\item \cvsubevent{Internship}{Cenaero - Simulation Technologies for Aeronautics}{Study of Multiple Correlated Responses in a Surrogate-based Framework}
+\end{itemize}
+\divider
+
+\cvevent{Bachelor degree in Computer Sciences}{Université Libre de Bruxelles (ULB)}{2014 -- 2017}{Brussels, Belgium}
+\begin{itemize}
+\setlength\itemsep{0.75em}
+\small
+\item \cvsubevent{Bachelor Thesis}{ULB Computer Science Department}{Reduction of the Word Equation Problem for a SAT Resolution}
+\end{itemize}
+
+\divider
+
+\cvevent{Bachelor degree in Engineering Science}{École polytechnique de Bruxelles (EPB)}{2013 -- 2017}{Brussels, Belgium}
+\begin{itemize}
+\setlength\itemsep{0.5em}
+\small
+\item \textbf{Majors}: Physics Engineering
+\end{itemize}
 
 
-\cvevent{Bachelor degree in Physics Engineering}{UniversitÃ© Libre de Bruxelles}{2017}{Brussels, Belgium}
 
-%\divider
+\vspace{2em}
+\cvsection[page1sidebar]{Research Papers}
 
-\cvevent{Bachelor degree in Computer Sciences}{UniversitÃ© Libre de Bruxelles}{2017}{Brussels, Belgium}
+%\dividerdot{First authorship}
 
-%\divider
+\cvpaper{Near-zero Radiation Induced Attenuation in Nested Anti-resonant Nodeless Hollow-core Fibers at 1550 nm}{Optical Fiber Conference}{10.1364/OFC.2023.W4D.4}{2023}{Published}
 
+\divider
 
-\cvevent{World Tour - Work \& Travel Visa}{\vspace{-1.3em}}{2013}{USA, Australia, Thailand}
+\cvpaper{Near-infrared Radiation Induced Attenuation in Nested Anti-resonant Hollow-core Fibres}{Optics Letters}{10.1364/OL.504167}{2023}{Accepted}
 
-%\divider
+\iffalse
+\dividerdot{Co-authorship}
 
-\cvevent{High-school Degree}{\vspace{-1.3em}}{2012}{Nivelles, Belgium}
+\cvpaper{Coupling NANF to Silicon Photonics circuits}{C. Scarcella et al.}{10.1103/PhysRevE.107.054214}{2022}{Published}
 
-
-\vspace{1.5em}
-\cvsection[page1sidebar]{Experience and projects}
-
-\cvevent{Deep Reinforcement Learning for the Planning of Liver Tumor Thermal Ablation}{Siemens Healthineers - Artificial Intelligence Group}{2020}{Erlangen, Germany}
-
-\cvevent{Simulation of a Figure-of-eight All-normal-dispersion All-in-fiber Regenerative Hybrid Harmonic Mode-locked Laser}{Max Planck Institute for the Science of Light - Pr. Schmauss Associated Group}{2020}{Erlangen, Germany}
-
-\cvevent{Optcom: Open-Source Optical System Simulator (\href{https://github.com/optcom-org/optcom}{Github})}{Founder}{2019}{Germany}
+\dividerdot{Acknowledged Participation}
+\cvpaper{Attractors and bifurcation diagrams in complex climate models}{M. Brunetti and C. Ragon}{10.1103/PhysRevE.107.054214}{2023}{Published}
+\fi
 
 
-\cvevent{Simulation of a Pulse Stretcher concept for Ultrashort Pulse Fiber Laser Systems}{Max Planck Institute for the Science of Light - Pr. Schmauss Associated Group}{2019}{Erlangen, Germany}
 
-\cvevent{Study of Multiple Correlated Responses in a Surrogate-based Framework}{Cenaero - Simulation Technologies for Aeronautics}{2018}{Charleroi, Belgium}
+%\cvevent{Optcom: Open-Source Optical System Simulator (\href{https://github.com/optcom-org/optcom}{Github})}{Founder}{2019}{Germany}
 
-\cvevent{Reduction of the Word Equation Problem for a SAT Resolution}{UniversitÃ© Libre de Bruxelles - Computer Sciences Departement}{2017}{Brussels, Belgium}
+
 
 
 \clearpage

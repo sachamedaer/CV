@@ -11,7 +11,8 @@
 %% version 2003/12/01 or later.
 %%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{altacv}[2017/02/01 AltaCV v1.1.2, yet another alternative class for a rÃ©sumÃ©/curriculum vitae.]
+\ProvidesClass{altacv}[2017/02/01 AltaCV v1.1.2, yet another alternative class for a résumé/curriculum vitae.]
+
 
 %% v1.1: Optionally load academicons
 \newif\if@academicons
@@ -23,16 +24,17 @@
 
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage{fontawesome}
-
 %% v1.1: Optionally load academicons
+
 \if@academicons
   %% Patch to make academicons compilable with XeLaTeX
   \ExplSyntaxOn
   \msg_redirect_name:nnn { fontspec } { font-not-found } { none }
   \ExplSyntaxOff
   \RequirePackage{academicons}
-  \newfontfamily{\AI}{academicons.ttf}
+  %\newfontfamily{\AI}{academicons.ttf}
 \fi
+
 
 \RequirePackage{xcolor}
 
@@ -58,6 +60,7 @@
 
 \setlength{\parindent}{0pt}
 \newcommand{\divider}{\textcolor{body!30}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip}
+\newcommand{\dividerdot}[1]{{\color{body!30}{#1}\dotfill\medskip}}
 
 \newcommand{\emailsymbol}{\faAt}
 \newcommand{\phonesymbol}{\faPhone}
@@ -66,7 +69,8 @@
 \newcommand{\linkedinsymbol}{\faLinkedin}
 \newcommand{\twittersymbol}{\faTwitter}
 \newcommand{\githubsymbol}{\faGithub}
-\newcommand{\orcidsymbol}{\aiOrcid}
+%\newcommand{\orcidsymbol}{{\includegraphics[scale=1]{figures/orcid.jpg}}}
+\usepackage{orcidlink}
 \newcommand{\mailsymbol}{\faEnvelope}
 
 \newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}#2\hspace{2em}}}
@@ -79,11 +83,11 @@
 \newcommand{\phone}[1]{\printinfo{\phonesymbol}{#1}}
 \newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
 \newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
-\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{\href{https://linkedin.com/in/#1/}{#1}}}
 \newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
-\newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
+%\newcommand{\orcid}[1]{\printinfo{\orcidlink{#1}}{\href{https://orcid.org/#1}{#1}}}
+\newcommand{\orcid}[1]{\printinfo{\aiOrcid}{\href{https://orcid.org/#1}{#1}}}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
-
 \newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
 
 \newcommand{\makecvheader}{%
@@ -117,13 +121,57 @@
   {\color{emphasis}\large\bfseries{#1}\par}\medskip
 }
 
-\newcommand{\cvevent}[4]{%
+\newcommand{\cveventold}[4]{%
   {\large\color{emphasis}#1\par}
   \smallskip
   \textbf{\color{accent}#2}\par
   \smallskip
   {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
   \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  \medskip
+}
+
+%\iffalse
+\newcommand{\cvevent}[4]{%
+  {\large\color{emphasis}\makebox[0.74\linewidth][l]{#1}}
+  {\small \makebox[0.25\linewidth][r]{\faMapMarker \hspace{0.5em}#4}\par}
+  \smallskip
+  {\color{accent}\makebox[0.79\linewidth][l]{\textbf{#2}}}
+  {\small \makebox[0.2\linewidth][r]{\faCalendar \hspace{0.5em}#3}\par}
+  \medskip
+}
+%\fi
+
+\newcommand{\cvpaper}[5]{%
+  {\color{emphasis}{\textit{#1}}}\par
+  \smallskip
+  {\color{accent}\makebox[0.36\linewidth][l]{\textbf{#2}}}
+  {\small \makebox[0.32\linewidth][l]{\aiDoi \hspace{0.5em}{\footnotesize \href{https://doi.org/#3}{#3}}}}
+  {\small \makebox[0.1\linewidth][l]{\faCalendar \hspace{0.5em}#4}}
+  {\small \makebox[0.19\linewidth][r]{\faInfoCircle \hspace{0.5em}#5}}\par
+  \medskip
+}
+
+
+\newcommand{\cvsubevent}[3]{%
+   \small
+  %\textbf{#1:}%\par
+  {\makebox[0.21\linewidth][l]{\textbf{#1}:}}
+  %{\makebox[0.21\linewidth][l]{\faCalendar \hspace{0.5em}#2}}
+  {\makebox[0.78\linewidth][l]{\faMapPin\hspace{0.5em}\textbf{#2}}}\smallskip\par
+  %{\makebox[0.18\linewidth][l]{}}
+  {\textit{#3}}\par    %\faInfoCircle
+  }
+
+
+\newcommand{\cvplacedate}[2]{%
+  {\hspace{0.5em}\small\makebox[0.2\linewidth][l]{\faCalendar \hspace{0.5em}#1}%
+  \ifstrequal{#2}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#2}}\par}
+  \medskip
+}
+
+\newcommand{\cvplace}[1]{%
+  {\ifstrequal{#1}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#1}}\par}
   \medskip
 }
 
